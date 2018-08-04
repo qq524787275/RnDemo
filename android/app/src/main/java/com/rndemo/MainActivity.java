@@ -1,6 +1,7 @@
 package com.rndemo;
 
 import android.os.Bundle;
+import android.widget.AdapterViewFlipper;
 import android.widget.Toast;
 
 import com.facebook.react.ReactActivity;

@@ -2,11 +2,16 @@ import React from 'react';
 import {View, StatusBar as status,} from 'react-native';
 import StatusModule from 'src/native/android/modules/StatusModule';
 import Color from 'color';
+import PrimaryStore from 'src/store/PrimaryStore';
 import PropTypes from 'prop-types';
 import {observer} from "mobx-react";
 
 @observer
 export default class StatusBar extends React.Component {
+
+    state={
+        isDark:null,
+    }
 
     _autoStatusMode() {
         this.render();
@@ -14,17 +19,16 @@ export default class StatusBar extends React.Component {
 
     render() {
         const {color} = this.props;
-        Color(color).isLight() ? StatusModule.setDarkMode() : StatusModule.setLightMode()
+        let colorPrimary=!color?PrimaryStore.getInstance().colorPrimary:color;
+        Color(colorPrimary).isLight() ? StatusModule.setDarkMode() : StatusModule.setLightMode()
         return (
-            <View style={{width: "100%", height: status.currentHeight, backgroundColor: color}}></View>
+            <View style={{width: "100%", height: status.currentHeight, backgroundColor: colorPrimary}}></View>
         );
     }
-}
-
-StatusBar.defaultProps = {
-    color: "#000000",
 }
 
 StatusBar.propTypes = {
     color: PropTypes.string,
 }
+
+

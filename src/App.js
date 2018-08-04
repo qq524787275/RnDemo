@@ -1,17 +1,21 @@
 import React from 'react';
 import {
-    NativeModules,
+    View,
 } from 'react-native';
 import Main from './Main';
+import AppBackground from './AppBackground';
+import {init} from './Global'
 
-const { UIManager } = NativeModules;
-UIManager.setLayoutAnimationEnabledExperimental &&
-UIManager.setLayoutAnimationEnabledExperimental(true);
+
+init();
 
 export default class App extends React.Component {
     render() {
         return (
-            <Main/>
+            <View style={{flex:1}}>
+                <AppBackground></AppBackground>
+                <Main/>
+            </View>
         );
     }
 }

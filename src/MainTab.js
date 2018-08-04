@@ -19,7 +19,7 @@ const BottomTab = createBottomTabNavigator({
         tabBarPosition: 'bottom',
         initialRouteName: 'HomeScreen',
         tabBarOptions: {
-            activeTintColor: "#00ba90",
+            activeTintColor: "#00",
             inactiveTintColor: '#666',
             showIcon: true,
             indicatorStyle: {
@@ -27,11 +27,14 @@ const BottomTab = createBottomTabNavigator({
             },
             style: {
                 backgroundColor: '#fff',
-                height: Platform.OS === 'android' ? 54 : 49
+                height: Platform.OS === 'android' ? 49 : 49
             },
             labelStyle: {
                 fontSize: 12,
             }
+        },
+        cardStyle:{
+            backgroundColor:"red"
         }
     });
 
