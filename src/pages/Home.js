@@ -37,7 +37,6 @@ export default class Home extends React.Component {
 
     componentDidMount() {
         SplashScreen.hide();
-        StatusModule.setDarkMode();
         this.num = 0;
     }
 

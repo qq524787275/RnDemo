@@ -14,8 +14,8 @@ export default class TabBarLabel extends React.Component {
 
     @observable num = 0;
 
-    @action setNum(num){
-        this.num=num;
+    @action setNum(num) {
+        this.num = num;
     }
 
     _startAnimation = () => {
@@ -24,7 +24,7 @@ export default class TabBarLabel extends React.Component {
 
     render() {
 
-        const {color, position, name, size, } = this.props;
+        const {color, position, name, size,} = this.props;
         let sm = PrimaryStore.getInstance().styleMode;
         let lang, tintColor;
         switch (position) {
@@ -49,18 +49,18 @@ export default class TabBarLabel extends React.Component {
         }
 
         return (
-            <View style={[styles.root,{backgroundColor:sm.bottomBackground}]}>
-                <View  ref={ref => this.view = ref}>
-                <View>
-                    <Icon name={name} size={size} color={tintColor} style={styles.icon}></Icon>
-                    {
-                        this.num != 0 ? <View style={styles.dot}>
-                            <Text style={[styles.font, {color: "#ffffff"}]}>{this.num<=99?this.num:99}</Text>
-                        </View> : null
-                    }
-                </View>
-                <Text style={[styles.font, {color: tintColor}]}
-                      animation={"rubberBand"}>{lang.title}</Text>
+            <View style={[styles.root, {backgroundColor: sm.bottomBackground}]}>
+                <View ref={ref => this.view = ref}>
+                    <View>
+                        <Icon name={name} size={size} color={tintColor} style={styles.icon}></Icon>
+                        {
+                            this.num != 0 ? <View style={styles.dot}>
+                                <Text style={[styles.font, {color: "#ffffff"}]}>{this.num <= 99 ? this.num : 99}</Text>
+                            </View> : null
+                        }
+                    </View>
+                    <Text style={[styles.font, {color: tintColor}]}
+                          animation={"rubberBand"}>{lang.title}</Text>
                 </View>
             </View>
         );
@@ -84,6 +84,7 @@ TabBarLabel.defaultProps = {
 const styles = StyleSheet.create({
     root: {
         height: "100%",
+        width: "100%",
         justifyContent: "center"
     },
     font: {
